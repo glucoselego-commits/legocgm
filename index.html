@@ -23,7 +23,7 @@
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 500px;
+      max-width: 520px;
       width: 100%;
       text-align: center;
     }
@@ -32,11 +32,49 @@
     .warning {
       background-color: #fff8e6;
       border-left: 4px solid #ffb800;
-      padding: 10px 15px;
+      padding: 12px 15px;
       font-size: 14px;
       text-align: left;
       margin: 20px 0;
       border-radius: 4px;
+      color: #444;
+    }
+    .driver-box {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      padding: 16px;
+      font-size: 14px;
+      text-align: left;
+      margin-top: 25px;
+      border-radius: 8px;
+    }
+    .driver-box h3 {
+      margin: 0 0 8px 0;
+      font-size: 15px;
+      color: #222;
+    }
+    .driver-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .driver-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #0066cc;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    .driver-btn:hover {
+      background-color: #0052a3;
+    }
+    esp-web-install-button {
+      margin-top: 10px;
     }
   </style>
   <!-- ESP Web Tools 웹 컴포넌트 스크립트 불러오기 -->
@@ -46,16 +84,28 @@
 
   <div class="card">
     <h1>레고 혈당판 펌웨어 설치 <2026. 10. 9.></h1>
-    <p>크롬(Chrome) 또는 에지(Edge) 브라우저에서 USB로 ESP8266을 PC에 연결한 후 아래 버튼을 클릭하세요.</p>
+    <p>PC의 Chrome 또는 Edge 브라우저에서 USB로 ESP8266을 연결한 후 아래 버튼을 클릭하세요.</p>
     
     <div class="warning">
-      <strong>주의사항:</strong><br>
-      • Chrome 또는 Edge 브라우저에서만 작동합니다.<br>
-      • 데이터 전송이 가능한 USB 케이블을 사용해주세요.
+      <strong>⚠️ 필독 안내사항:</strong><br>
+      • PC의 <strong>Chrome</strong> 또는 <strong>Edge</strong> 브라우저만 지원합니다. (모바일 미지원)<br>
+      • 반드시 <strong>데이터 전송이 가능한 USB 케이블</strong>을 사용해 주세요. (충전 전용 케이블 사용 시 장치가 인식되지 않음)
     </div>
 
     <!-- ESP Web Tools 설치 버튼 -->
     <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
+
+    <!-- USB 드라이버 안내 섹션 -->
+    <div class="driver-box">
+      <h3>🔌 장치(포트)가 인식되지 않나요?</h3>
+      <p style="margin: 0; font-size: 13px; color: #666; line-height: 1.5;">
+        PC에 USB 드라이버가 설치되어 있지 않으면 장치가 포트 목록에 나타나지 않습니다. 사용 중인 보드의 칩셋에 맞는 드라이버를 먼저 설치 후 다시 시도해 주세요.
+      </p>
+      <div class="driver-links">
+        <a href="https://www.wch-ic.com/downloads/CH341SER_EXE.html" target="_blank" class="driver-btn">CH340 드라이버 다운로드</a>
+        <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers" target="_blank" class="driver-btn">CP210x 드라이버 다운로드</a>
+      </div>
+    </div>
   </div>
 
 </body>

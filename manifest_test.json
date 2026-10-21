@@ -1,0 +1,13 @@
+{
+  "name": "Lego Nightscout Clock - Test Only",
+  "version": "1.0.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        { "path": "firmware_test.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
